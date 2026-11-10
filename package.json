@@ -5,7 +5,10 @@
   "description": "A small task manager for an Operating Systems lab.",
   "scripts": {
     "start": "node src/server.js",
-    "test": "node --test tests/api.test.js"
+    "test": "node --test tests/api.test.js",
+    "docker:build": "docker build -t tasktrack:latest .",
+    "docker:run": "docker run --detach --name tasktrack --publish 3000:3000 --mount type=volume,source=tasktrack-data,target=/app/data tasktrack:latest",
+    "docker:stop": "docker stop tasktrack && docker rm tasktrack"
   },
   "engines": { "node": ">=20" },
   "dependencies": { "express": "^5.1.0" }

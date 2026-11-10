@@ -1,0 +1,12 @@
+# Only the dependency manifests and application source enter the build context.
+# This excludes node_modules, .git, .env files, data, logs, screenshots,
+# documentation, tests, editor settings, caches, and CI/Compose configuration.
+**
+!package.json
+!package-lock.json
+!src/
+!src/server.js
+!src/public/
+!src/public/index.html
+!src/public/styles.css
+!src/public/app.js
