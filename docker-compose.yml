@@ -1,0 +1,17 @@
+services:
+  tasktrack:
+    build: .
+    image: tasktrack:latest
+    container_name: tasktrack
+    ports:
+      - "${HOST_PORT:-3000}:3000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      DATA_DIR: /app/data
+    volumes:
+      - tasktrack-data:/app/data
+
+volumes:
+  tasktrack-data:
+    name: tasktrack-data
