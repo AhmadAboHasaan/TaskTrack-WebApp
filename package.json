@@ -1,0 +1,12 @@
+{
+  "name": "tasktrack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small task manager for an Operating Systems lab.",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test tests/api.test.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": { "express": "^5.1.0" }
+}

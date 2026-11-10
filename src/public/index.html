@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="description" content="TaskTrack — a little space for everything you need to do.">
+  <title>TaskTrack · Your day, in focus</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%230f766e'/%3E%3Cpath d='m11 21 6 6 13-14' fill='none' stroke='white' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><div class="brand"><span class="brand-icon" aria-hidden="true">✓</span>TaskTrack<span class="brand-dot">.</span></div><span class="lab-label">OS LAB / TASK MANAGER</span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">MAKE ROOM FOR WHAT MATTERS</p><h1>Your day, in focus.</h1><p class="subtitle">A little structure. A lot more headspace.</p></div><span class="intro-note"><span aria-hidden="true">✦</span> One task at a time.</span></section>
+    <section class="stats" aria-label="Task overview">
+      <div class="stat"><span>Total tasks</span><strong id="total-count">—</strong><span class="stat-symbol" aria-hidden="true">≡</span></div>
+      <div class="stat"><span>Pending</span><strong id="pending-count">—</strong><span class="stat-symbol pending-symbol" aria-hidden="true">◷</span></div>
+      <div class="stat"><span>Completed</span><strong id="completed-count">—</strong><span class="stat-symbol" aria-hidden="true">✓</span></div>
+    </section>
+    <div class="workspace">
+      <aside class="composer"><div class="panel-heading"><span class="small-icon" aria-hidden="true">＋</span><h2>Add a task</h2></div><p>Get it out of your head and onto your list.</p>
+        <form id="task-form">
+          <label for="title">Task title <span class="required">*</span></label><input id="title" name="title" placeholder="What needs to get done?" required maxlength="120" autocomplete="off">
+          <label for="description">Description <span class="optional">optional</span></label><textarea id="description" name="description" placeholder="Add a few details…" maxlength="1000" rows="4"></textarea>
+          <label for="priority">Priority</label><select id="priority" name="priority"><option value="low">Low priority</option><option value="medium" selected>Medium priority</option><option value="high">High priority</option></select>
+          <button class="primary-button" id="add-button" type="submit"><span aria-hidden="true">＋</span> Add task</button>
+          <p class="form-note">Small steps make big things happen.</p>
+        </form>
+      </aside>
+      <section class="task-panel" aria-labelledby="list-title">
+        <div class="list-heading"><h2 id="list-title">Your tasks <span id="visible-count" class="count-pill">—</span></h2><div class="filters" role="group" aria-label="Filter tasks"><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="pending" aria-pressed="false">Pending</button><button type="button" data-filter="completed" aria-pressed="false">Completed</button></div></div>
+        <div id="error-message" class="error-message" role="alert" hidden><span id="error-text"></span><button id="retry-button" type="button">Retry</button></div>
+        <p id="feedback" class="sr-only" role="status" aria-live="polite"></p>
+        <div id="task-list" class="task-list" aria-busy="true"><div class="empty-state" role="status"><span class="empty-icon" aria-hidden="true">◷</span><h3>Loading your tasks…</h3><p>Getting everything ready.</p></div></div>
+        <p class="list-footnote"><span aria-hidden="true">↳</span> A clearer list. A calmer mind.</p>
+      </section>
+    </div>
+    <footer><span>TaskTrack <span aria-hidden="true">/</span> Keep moving forward.</span><span>Built for the everyday.</span></footer>
+  </main>
+</body>
+</html>
